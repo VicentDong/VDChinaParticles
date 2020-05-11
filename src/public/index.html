@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>粒子中国地图</title>  
+  <style>
+    *{
+      padding:0;
+      margin:0
+    }
+    .container{
+      border: 1px solid #cccccc;
+      width: 800px;
+      height: 600px;
+    }
+    .particles{
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    .marker{
+       position: absolute;
+      width: 24px;
+      height: 24px;
+      border: 6px solid red;
+      -webkit-border-radius: 30px;
+      -moz-border-radius: 30px;
+      border-radius: 30px;
+      z-index: 1;
+      opacity: 0;
+      -webkit-animation: warn 2s ease-out;
+      -moz-animation: warn 2s ease-out;
+      animation: warn 2s ease-out;
+      -webkit-animation-iteration-count: infinite;
+      -moz-animation-iteration-count: infinite;
+      animation-iteration-count: infinite;
+    }
+    @keyframes warn {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      25% {
+        transform: scale(0.1);
+        opacity: 0.1;
+      }
+      50% {
+        transform: scale(0.3);
+        opacity: 0.3;
+      }
+      75% {
+        transform: scale(0.7);
+        opacity: 0.5;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0;
+      }
+    }
+  </style>
+  <script src="https://cdn.bootcss.com/lodash.js/4.17.15/lodash.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="particles"></div>
+  </div>
+</body>
+  <script>
+    VDChinaParticales.init({
+      container:document.querySelector('.particles'),
+      step:20,
+      radius:3,
+      backImg:'./images/china.png',
+      markers:[
+        {
+          x:'116.405419',
+          y:'39.915156',
+          value:10
+        },{
+          x:'121.48054',
+          y:'31.235188',
+          value:100
+        }
+      ]
+    })
+  </script>
+</html>
